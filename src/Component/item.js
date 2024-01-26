@@ -8,17 +8,12 @@ export const Item = ({ children }) => {
         height: "100%",
         backgroundColor: "black",
 
-        borderLeft: "1px solid #7f8c8d",
-        borderRight: "1px solid #7f8c8d",
-
-
-        borderTop: "2px solid #7f8c8d",
-        borderBottom: "2px solid #7f8c8d",
+        border: "1px solid #7f8c8d",
 
         marginLeft: "-1px",
-        marginRight: "1px",
+        marginRight: "-1px",
         marginTop: "-1px",
-        marginBottom: "1px",
+        marginBottom: "-1px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
