@@ -1,41 +1,38 @@
 import './App.css';
 
-const Item = ({ children }) => {
-    const itemStyle = {
-        width: "12.5%",
-        height: "100%",
-        backgroundColor: "#2c3e50",
-        border: "1px solid #34495e",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    }
+import React from 'react';
 
-    return (
-        <div style={itemStyle}>
-            {children}
-        </div>
-    );
+import {Row} from "./Component/row";
+import {Item} from "./Component/item";
+
+import {Empty} from "./Component/widget/empty";
+import {FrTime} from "./Component/widget/FrTime";
+import {QcTime} from "./Component/widget/QcTime";
+
+function viewMapping() {
+    let mapping = new Map()
+
+    mapping.set(1, FrTime)
+    mapping.set(2, QcTime)
+
+    return mapping
 }
 
+function widgetForIndex(index) {
+    console.log("index: " + index)
 
-const Row = ({ children }) => {
-    const rowStyle = {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
+    const mapping = viewMapping()
 
-        height: "50%",
+    console.log(mapping, index, mapping.has(index))
+
+    if (mapping.has(index)) {
+        console.log("OK for", index)
+        return mapping.get(index)()
+    } else {
+        console.log("Empty for", index)
+        return Empty()
     }
-
-    return (
-        <div style={rowStyle}>
-            {children}
-        </div>
-    );
-};
-
+}
 
 function App() {
     var classes = "App"
@@ -46,13 +43,12 @@ function App() {
     console.log(classes)
 
     var TwoTimesEightArray = Array(2).fill(Array(8).fill(0))
-    //set values in array from 0 to 15
+
     TwoTimesEightArray = TwoTimesEightArray.map((row, rowIndex) => {
         return row.map((col, colIndex) => {
             return rowIndex * 8 + colIndex
         })
     })
-
 
     console.log(TwoTimesEightArray)
 
@@ -64,7 +60,9 @@ function App() {
                     <Row>
                         {row.map((col, colIndex) => (
                             <Item>
-                                {col}
+                                {
+                                    widgetForIndex(col)
+                                }
                             </Item>
                         ))}
                     </Row>
