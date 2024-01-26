@@ -1,12 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
     var classes = "App"
-    if (process.env.NODE_ENV === "development") {
+    if (process.env.REACT_APP_EMBEDDED === false) {
         classes = "App DebugApp"
     }
-    console.log(process.env.NODE_ENV)
+    console.log("embed: " + process.env.REACT_APP_EMBEDDED)
     console.log(classes)
   return (
     <div className={classes}>
