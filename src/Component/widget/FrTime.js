@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 var moment = require('moment-timezone');
 
+const textSize = {
+    color: "white",
+    fontSize: "xxx-large",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontFamily: "sans-serif",
+}
+
 export function FrTime() {
     const [time, setTime] = useState(moment().tz('Europe/Paris').format('HH:mm'));
 
@@ -14,8 +22,8 @@ export function FrTime() {
 
     return (
         <div>
-            <p>🇫🇷</p>
-            <p>{time}</p>
+            <p style={textSize}>🇫🇷</p>
+            <p style={textSize}>{time}</p>
         </div>
     );
 }
