@@ -4,7 +4,8 @@ const Item = ({ children }) => {
     const itemStyle = {
         width: "12.5%",
         height: "100%",
-        backgroundColor: "red",
+        backgroundColor: "#2c3e50",
+        border: "1px solid #34495e",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
