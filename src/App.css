@@ -11,11 +11,13 @@
   background-color: #282c34;
 
   width: 1920px;
-  height: 768px;
+  height: 480px;
 
   font-size: 30px;
 
   color: white;
+
+  overflow: hidden;
 }
 
 .App-link {
