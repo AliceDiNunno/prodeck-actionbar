@@ -2,10 +2,9 @@ import './App.css';
 
 const Item = ({ children }) => {
     const itemStyle = {
-        width: "50px",
-        height: "50px",
+        width: "12.5%",
+        height: "100%",
         backgroundColor: "red",
-        margin: "10px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -25,6 +24,8 @@ const Row = ({ children }) => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+
+        height: "50%",
     }
 
     return (
