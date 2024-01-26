@@ -1,5 +1,40 @@
 import './App.css';
 
+const Item = ({ children }) => {
+    const itemStyle = {
+        width: "50px",
+        height: "50px",
+        backgroundColor: "red",
+        margin: "10px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    }
+
+    return (
+        <div style={itemStyle}>
+            {children}
+        </div>
+    );
+}
+
+
+const Row = ({ children }) => {
+    const rowStyle = {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+    }
+
+    return (
+        <div style={rowStyle}>
+            {children}
+        </div>
+    );
+};
+
+
 function App() {
     var classes = "App"
     if (process.env.REACT_APP_EMBEDDED === "false") {
@@ -7,11 +42,32 @@ function App() {
     }
     console.log("embed: " + process.env.REACT_APP_EMBEDDED)
     console.log(classes)
+
+    var TwoTimesEightArray = Array(2).fill(Array(8).fill(0))
+    //set values in array from 0 to 15
+    TwoTimesEightArray = TwoTimesEightArray.map((row, rowIndex) => {
+        return row.map((col, colIndex) => {
+            return rowIndex * 8 + colIndex
+        })
+    })
+
+
+    console.log(TwoTimesEightArray)
+
   return (
     <div className={classes}>
       <header className="App-header">
-        🇫🇷15:20
-          🇨🇦 9:20
+          {
+                TwoTimesEightArray.map((row, rowIndex) => (
+                    <Row>
+                        {row.map((col, colIndex) => (
+                            <Item>
+                                {col}
+                            </Item>
+                        ))}
+                    </Row>
+                ))
+          }
       </header>
     </div>
   );
