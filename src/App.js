@@ -2,7 +2,7 @@ import './App.css';
 
 function App() {
     var classes = "App"
-    if (process.env.REACT_APP_EMBEDDED === false) {
+    if (process.env.REACT_APP_EMBEDDED === "false") {
         classes = "App DebugApp"
     }
     console.log("embed: " + process.env.REACT_APP_EMBEDDED)
